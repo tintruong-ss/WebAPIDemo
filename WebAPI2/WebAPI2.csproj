@@ -62,7 +62,9 @@
   <ItemGroup>
     <Compile Include="Config\RouteConfig.cs" />
     <Compile Include="Config\WebAPIConfig.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WebsitesController.cs" />
+    <Compile Include="Dispatchers\DemoDispatcher.cs" />
     <Compile Include="MessageHandlers\RequireHttpsMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

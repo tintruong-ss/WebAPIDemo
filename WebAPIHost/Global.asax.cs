@@ -15,6 +15,8 @@ namespace WebAPIHost
 
             WebAPI.Config.RouteConfig.RegisterRoutes(config);
             WebAPI.Config.WebAPIConfig.Configure(config);
+
+            config.EnsureInitialized();
         }
     }
 }

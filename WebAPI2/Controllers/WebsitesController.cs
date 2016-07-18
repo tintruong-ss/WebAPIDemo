@@ -13,6 +13,7 @@ namespace WebAPI.Controllers
     }
 
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [RoutePrefix("api/Websites")]
     //[Authorize]
     public class WebsitesController : ApiController
     {
@@ -25,30 +26,9 @@ namespace WebAPI.Controllers
         };
 
         // GET api/Websites 
-        //[AllowAnonymous]
         public IEnumerable<Website> Get()
         {
             return websites;
-        }
-
-        //[AllowAnonymous]
-        //[ActionName("GetAll")]
-        public IEnumerable<Website> GetAll()
-        {
-            return websites;
-        }
-
-        // GET api/Websites/5 
-        public Website GetAll(int id)
-        {
-            try
-            {
-                return websites[id];
-            }
-            catch (Exception e)
-            {
-                return new Website();
-            }
         }
 
         // GET api/Websites/5 
@@ -80,6 +60,12 @@ namespace WebAPI.Controllers
         public void Delete(int id)
         {
             Console.WriteLine("Delete method called with id = " + id);
+        }
+
+        [Route("{id:int}/details")]
+        public Website GetTest(int id)
+        {
+            return websites[id];
         }
     }
 }
