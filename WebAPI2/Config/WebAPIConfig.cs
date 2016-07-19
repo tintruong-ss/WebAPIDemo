@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
+using WebAPI2.ActionFilters;
 using WebAPI2.MessageHandlers;
 
 namespace WebAPI.Config
@@ -20,9 +22,12 @@ namespace WebAPI.Config
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            // Apply filters
+            config.Filters.Add(new MyExceptionFilter());
+
             // Return Json as default
-            //var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
-            //config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
     }
 }

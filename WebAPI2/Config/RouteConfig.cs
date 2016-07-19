@@ -16,16 +16,14 @@ namespace WebAPI.Config
                     new HttpControllerDispatcher(config),
                     new[] { new DemoDispatcher() });
 
-            var routes = config.Routes;
-
-            routes.MapHttpRoute(
+            config.Routes.MapHttpRoute(
                 "DemoDispatcherRoute",
                 "api/{controller}/{id}/perroute",
                 defaults: new { controller = "Websites", id = RouteParameter.Optional },
                 constraints: null,
                 handler: demoPipeline);
 
-            routes.MapHttpRoute(
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.Filters;
+using WebAPI2.ActionFilters;
 
 namespace WebAPI.Controllers
 {
@@ -44,8 +46,20 @@ namespace WebAPI.Controllers
             }
         }
 
+        [MyExceptionFilter]
         // POST api/values 
         public Website Post([FromBody]Website value)
+        {
+            Console.WriteLine("Post method called with value = " + value);
+            value.Id = 100;
+            value.Name = "DavidTruong.com";
+            value.Description = "David Site";
+            return value;
+        }
+
+        [Route("PostWithNoExceptionFilter")]
+        // POST api/values 
+        public Website PostNoExceptionFilter([FromBody]Website value)
         {
             Console.WriteLine("Post method called with value = " + value);
             value.Id = 100;

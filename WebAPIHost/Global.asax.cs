@@ -13,9 +13,10 @@ namespace WebAPIHost
         {
             var config = GlobalConfiguration.Configuration;
 
-            WebAPI.Config.RouteConfig.RegisterRoutes(config);
             WebAPI.Config.WebAPIConfig.Configure(config);
+            WebAPI.Config.RouteConfig.RegisterRoutes(config);
 
+            // To enable RouteAtribute works
             config.EnsureInitialized();
         }
     }
