@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using WebAPI2.MessageHandlers;
 
 namespace WebAPI.Config
 {
@@ -11,6 +12,7 @@ namespace WebAPI.Config
 
             // Message Handlers
             //config.MessageHandlers.Add(new RequireHttpsMessageHandler());
+            config.MessageHandlers.Add(new DummyMessageHandler());
 
             // Add global authorization
             //config.Filters.Add(new AuthorizeAttribute());
@@ -19,8 +21,8 @@ namespace WebAPI.Config
             config.MapHttpAttributeRoutes();
 
             // Return Json as default
-            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
-            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+            //var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            //config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
     }
 }

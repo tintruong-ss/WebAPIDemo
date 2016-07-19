@@ -45,9 +45,13 @@ namespace WebAPI.Controllers
         }
 
         // POST api/values 
-        public void Post([FromBody]string value)
+        public Website Post([FromBody]Website value)
         {
             Console.WriteLine("Post method called with value = " + value);
+            value.Id = 100;
+            value.Name = "DavidTruong.com";
+            value.Description = "David Site";
+            return value;
         }
 
         // PUT api/values/5 

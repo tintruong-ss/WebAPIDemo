@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using WebAPI2.AuthenticationFilters;
 
 namespace WebAPI2.Controllers
 {
+    [BasicAuthenticationFilter]
     public class ValuesController : ApiController
     {
         // GET api/values
@@ -12,6 +14,7 @@ namespace WebAPI2.Controllers
         }
 
         // GET api/values/5
+        [BasicAuthenticationFilter(false)]
         public string Get(int id)
         {
             return "value";

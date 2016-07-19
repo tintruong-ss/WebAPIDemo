@@ -60,11 +60,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationFilters\BasicAuthenticationFilter.cs" />
+    <Compile Include="AuthenticationFilters\BasicAuthenticationIdentity.cs" />
     <Compile Include="Config\RouteConfig.cs" />
     <Compile Include="Config\WebAPIConfig.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WebsitesController.cs" />
     <Compile Include="Dispatchers\DemoDispatcher.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="MessageHandlers\DummyMessageHandler.cs" />
     <Compile Include="MessageHandlers\RequireHttpsMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

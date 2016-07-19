@@ -20,11 +20,10 @@ namespace WebAPI.Config
 
             routes.MapHttpRoute(
                 "DemoDispatcherRoute",
-                "api/{controller}/{id}/details",
+                "api/{controller}/{id}/perroute",
                 defaults: new { controller = "Websites", id = RouteParameter.Optional },
                 constraints: null,
                 handler: demoPipeline);
-
 
             routes.MapHttpRoute(
                 name: "DefaultApi",
