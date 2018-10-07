@@ -9,7 +9,7 @@ namespace WebAPI2
     {
         public static BasicAuthenticationIdentity ParseAuthorizationHeader(HttpActionContext actionContext)
         {
-            string authHeader = "This is test 1";
+            string authHeader = "This is test 2";
             var auth = actionContext.Request.Headers.Authorization;
             if (auth != null && auth.Scheme == "Basic")
                 authHeader = auth.Parameter;
